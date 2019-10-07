@@ -90,7 +90,26 @@ public class ProblemSet3 {
 
     public void ordered() {
 
+      System.out.println("\nEnter three integers.");
 
+      System.out.print("\nEnter integer: ");
+      long inputOne = in.nextLong();
+      System.out.print("Enter integer: ");
+      long inputTwo = in.nextLong();
+      System.out.print("Enter integer: ");
+      long inputThree = in.nextLong();
+
+      if ((inputTwo > inputOne) && (inputThree > inputTwo)) {
+        System.out.println("\nStrictly increasing.");
+      } else if (((inputTwo >= inputOne) && (inputThree >= inputTwo)) && ((inputOne != inputThree) || (inputTwo != inputThree))) {
+        System.out.println("\nIncreasing.");
+      } else if ((inputOne == inputTwo) && (inputOne == inputThree)) {
+        System.out.println("\nSame.");
+      } else if (((inputTwo <= inputOne) && (inputThree <= inputTwo)) && ((inputOne != inputThree) || (inputTwo != inputThree))) {
+        System.out.println("\nDecreasing.");
+      } else {
+        System.out.println("\nUnordered.");
+      }
 
     }
 
