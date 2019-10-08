@@ -30,8 +30,8 @@ public class ProblemSet3 {
 
         // ps.sign();          // executes Exercise 1
         // ps.parity();        // executes Exercise 2
-        ps.ordered();       // executes Exercise 3
-        // ps.gpa();           // executes Exercise 4
+        // ps.ordered();       // executes Exercise 3
+        ps.gpa();           // executes Exercise 4
         // ps.grade();         // executes Exercise 5
         // ps.cards();         // executes Exercise 6
         // ps.leapYear();      // executes Exercise 7
@@ -55,9 +55,9 @@ public class ProblemSet3 {
 
       if ((input / 2) > 0) {
         System.out.println("\nPositive.");
-      } else if ((input / 2) == 0) {
+      } else if (input / 2 == 0) {
         System.out.println("\nZero.");
-      } else if ((input / 2) < 0) {
+      } else if (input / 2 < 0) {
         System.out.println("\nNegative.");
       }
 
@@ -99,13 +99,13 @@ public class ProblemSet3 {
       System.out.print("Enter integer: ");
       long inputThree = in.nextLong();
 
-      if ((inputTwo > inputOne) && (inputThree > inputTwo)) {
+      if (inputTwo > inputOne && inputThree > inputTwo) {
         System.out.println("\nStrictly increasing.");
-      } else if (((inputTwo >= inputOne) && (inputThree >= inputTwo)) && ((inputOne != inputThree) || (inputTwo != inputThree))) {
+      } else if ((inputTwo >= inputOne && inputThree >= inputTwo) && (inputOne != inputThree || inputTwo != inputThree)) {
         System.out.println("\nIncreasing.");
-      } else if ((inputOne == inputTwo) && (inputOne == inputThree)) {
+      } else if (inputOne == inputTwo && inputOne == inputThree) {
         System.out.println("\nSame.");
-      } else if (((inputTwo <= inputOne) && (inputThree <= inputTwo)) && ((inputOne != inputThree) || (inputTwo != inputThree))) {
+      } else if ((inputTwo <= inputOne && inputThree <= inputTwo) && (inputOne != inputThree || inputTwo != inputThree)) {
         System.out.println("\nDecreasing.");
       } else {
         System.out.println("\nUnordered.");
@@ -121,6 +121,51 @@ public class ProblemSet3 {
 
     public void gpa() {
 
+      System.out.print("\nEnter a letter grade: ");
+      String grade = in.nextLine();
+      String letter = String.valueOf(grade.charAt(0));
+      String symbol = "";
+      double gpaVar = 0.00;
+      try {
+        symbol = String.valueOf(grade.charAt(1));
+      } catch (Exception e) {
+
+      }
+
+      if (letter.equals("A")) {
+        gpaVar = 4.00;
+      } else if (letter.equals("B")) {
+        gpaVar = 3.00;
+      } else if (letter.equals("C")) {
+        gpaVar = 2.00;
+      } else if (letter.equals("D")) {
+        gpaVar = 1.00;
+      } else if (letter.equals("F")) {
+        gpaVar = 0.00;
+      } else {
+        System.out.println("\nThat's not a valid letter grade.");
+      }
+
+      if (letter.equals("F")) {
+        if (symbol.equals("+")) {
+          System.out.println("\nThat's not a valid letter grade.");
+        } else if (symbol.equals("-")) {
+          System.out.println("\nThat's not a valid letter grade.");
+        } else System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
+      } else if (letter.equals("A")) {
+        if (symbol.equals("+")) {
+          System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
+        } if (symbol.equals("-")) {
+          gpaVar -= 0.33;
+          System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
+        }
+      } else if (symbol.equals("+")) {
+        gpaVar += 0.33;
+        System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
+      } else if (symbol.equals("-")) {
+        gpaVar -= 0.33;
+        System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
+      }
     }
 
     /*
