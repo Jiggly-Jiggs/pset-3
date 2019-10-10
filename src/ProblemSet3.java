@@ -166,6 +166,8 @@ public class ProblemSet3 {
         } if (symbol.equals("-")) {
           gpaVar -= 0.33;
           System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
+        } else {
+          System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
         }
       } else if (symbol.equals("+")) {
         gpaVar += PLUS;
@@ -185,6 +187,13 @@ public class ProblemSet3 {
      */
 
     public void grade() {
+
+      final int A_MAXIMUM = 100;
+      final int A_MINIMUM = 90;
+      final int B_MAXIMUM = 89;
+      final int B_MINIMUM = 80;
+       
+      System.out.print("\nEnter a grade: ");
 
     }
 
