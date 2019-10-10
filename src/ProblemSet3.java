@@ -133,15 +133,20 @@ public class ProblemSet3 {
       }
 
       if (letter.equals("A")) {
-        gpaVar = 4.00;
+        final double GRADE_A = 4.00;
+        gpaVar = GRADE_A;
       } else if (letter.equals("B")) {
-        gpaVar = 3.00;
+        final double GRADE_B = 3.00;
+        gpaVar = GRADE_B;
       } else if (letter.equals("C")) {
-        gpaVar = 2.00;
+        final double GRADE_C = 2.00;
+        gpaVar = GRADE_C;
       } else if (letter.equals("D")) {
-        gpaVar = 1.00;
+        final double GRADE_D = 1.00;
+        gpaVar = GRADE_D;
       } else if (letter.equals("F")) {
-        gpaVar = 0.00;
+        final double GRADE_F = 4.00;
+        gpaVar = GRADE_F;
       } else {
         System.out.println("\nThat's not a valid letter grade.");
       }
@@ -160,10 +165,14 @@ public class ProblemSet3 {
           System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
         }
       } else if (symbol.equals("+")) {
-        gpaVar += 0.33;
+        final double PLUS = 0.33;
+        gpaVar = PLUS;
         System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
       } else if (symbol.equals("-")) {
-        gpaVar -= 0.33;
+        final double MINUS = 0.33;
+        gpaVar = MINUS;
+        System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
+      } else if (symbol.equals("")) {
         System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
       }
     }
