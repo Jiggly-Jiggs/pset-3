@@ -121,6 +121,14 @@ public class ProblemSet3 {
 
     public void gpa() {
 
+      final double GRADE_A = 4.00;
+      final double GRADE_B = 3.00;
+      final double GRADE_C = 2.00;
+      final double GRADE_D = 1.00;
+      final double GRADE_F = 0.00;
+      final double PLUS = 0.33;
+      final double MINUS = 0.33;
+
       System.out.print("\nEnter a letter grade: ");
       String grade = in.nextLine();
       String letter = String.valueOf(grade.charAt(0));
@@ -133,19 +141,14 @@ public class ProblemSet3 {
       }
 
       if (letter.equals("A")) {
-        final double GRADE_A = 4.00;
         gpaVar = GRADE_A;
       } else if (letter.equals("B")) {
-        final double GRADE_B = 3.00;
         gpaVar = GRADE_B;
       } else if (letter.equals("C")) {
-        final double GRADE_C = 2.00;
         gpaVar = GRADE_C;
       } else if (letter.equals("D")) {
-        final double GRADE_D = 1.00;
         gpaVar = GRADE_D;
       } else if (letter.equals("F")) {
-        final double GRADE_F = 4.00;
         gpaVar = GRADE_F;
       } else {
         System.out.println("\nThat's not a valid letter grade.");
@@ -165,12 +168,10 @@ public class ProblemSet3 {
           System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
         }
       } else if (symbol.equals("+")) {
-        final double PLUS = 0.33;
-        gpaVar = PLUS;
+        gpaVar += PLUS;
         System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
       } else if (symbol.equals("-")) {
-        final double MINUS = 0.33;
-        gpaVar = MINUS;
+        gpaVar -= MINUS;
         System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
       } else if (symbol.equals("")) {
         System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
