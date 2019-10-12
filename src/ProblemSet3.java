@@ -28,16 +28,16 @@ public class ProblemSet3 {
 
         // comment out or uncomment as needed
 
-        // ps.sign();          // executes Exercise 1
-        // ps.parity();        // executes Exercise 2
-        // ps.ordered();       // executes Exercise 3
-        // ps.gpa();           // executes Exercise 4
-        // ps.grade();         // executes Exercise 5
-        // ps.cards();         // executes Exercise 6
-        // ps.leapYear();      // executes Exercise 7
-        // ps.state();         // executes Exercise 8
+        ps.sign();          // executes Exercise 1
+        ps.parity();        // executes Exercise 2
+        ps.ordered();       // executes Exercise 3
+        ps.gpa();           // executes Exercise 4
+        ps.grade();         // executes Exercise 5
+        ps.cards();         // executes Exercise 6
+        ps.leapYear();      // executes Exercise 7
+        ps.state();         // executes Exercise 8
         ps.months();        // executes Exercise 9
-        // ps.salary();        // executes Exercise 10
+        ps.salary();        // executes Exercise 10
 
         in.close();
     }
@@ -98,6 +98,7 @@ public class ProblemSet3 {
       long inputTwo = in.nextLong();
       System.out.print("Enter integer: ");
       long inputThree = in.nextLong();
+      in.nextLine();
 
       if (inputTwo > inputOne && inputThree > inputTwo) {
         System.out.println("\nStrictly increasing.");
@@ -178,6 +179,7 @@ public class ProblemSet3 {
       } else if (symbol.equals("")) {
         System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
       }
+
     }
 
     /*
@@ -201,6 +203,7 @@ public class ProblemSet3 {
 
       System.out.print("\nEnter a grade: ");
       double numberGrade = in.nextDouble();
+      in.nextLine();
 
       if (numberGrade <= A_MAXIMUM && numberGrade >= A_MINIMUM) {
           System.out.println("\nYou recieved an A.");
@@ -217,6 +220,7 @@ public class ProblemSet3 {
       } else if (numberGrade > 100) {
           System.out.println("\nGrades above 100 are invalid.");
       }
+
     }
 
     /*
@@ -288,6 +292,7 @@ public class ProblemSet3 {
       if (valid) {
         System.out.println("\n" + rankWord + " of " + suitWord + ".");
       }
+
     }
 
     /*
@@ -308,6 +313,7 @@ public class ProblemSet3 {
           System.out.println("\n" + year + " is not a leap year.");
         }
       }
+
     }
 
     /*
@@ -353,6 +359,7 @@ public class ProblemSet3 {
       if (!(scale.equals("C")) && !(scale.equals("F"))) {
         System.out.println("\nThat's not a valid scale.");
       }
+
     }
 
     /*
@@ -364,6 +371,35 @@ public class ProblemSet3 {
     public void months() {
 
       System.out.print("\nEnter a month: ");
+      String month = in.nextLine();
+
+      if (month.equals("January")) {
+        System.out.println("\n31 days.");
+      } else if (month.equals("February")) {
+        System.out.println("\n28 or 29 days.");
+      } else if (month.equals("March")) {
+        System.out.println("\n31 days.");
+      } else if (month.equals("April")) {
+        System.out.println("\n30 days.");
+      } else if (month.equals("May")) {
+        System.out.println("\n31 days.");
+      } else if (month.equals("June")) {
+        System.out.println("\n30 days.");
+      } else if (month.equals("July")) {
+        System.out.println("\n31 days.");
+      } else if (month.equals("August")) {
+        System.out.println("\n31 days.");
+      } else if (month.equals("September")) {
+        System.out.println("\n30 days.");
+      } else if (month.equals("October")) {
+        System.out.println("\n31 days.");
+      } else if (month.equals("November")) {
+        System.out.println("\n30 days.");
+      } else if (month.equals("December")) {
+        System.out.println("\n31 days.");
+      } else {
+        System.out.println("\nThat's not a valid month.");
+      }
 
     }
 
@@ -375,5 +411,33 @@ public class ProblemSet3 {
 
     public void salary() {
 
+      final double OVERTIME_THRESHOLD = 40;
+      final double OVERTIME_PAY_MULTIPLIER = 1.5;
+
+      System.out.print("\nWage: ");
+      double wage = in.nextDouble();
+
+      if (wage < 0) {
+        System.out.println("\nYour wage must be greater than or equal to $0.00/hour.");
+      }
+
+      System.out.print("Hours: ");
+      double hours = in.nextDouble();
+
+      if (hours < 0) {
+        System.out.println("\nYour hours must be greater than or equal to 0.0.");
+      }
+
+      double hoursOT;
+      double pay;
+
+      if (hours > OVERTIME_THRESHOLD) {
+        hoursOT = hours - OVERTIME_THRESHOLD;
+        pay = 40 * wage + hoursOT * OVERTIME_PAY_MULTIPLIER * wage;
+        System.out.printf("\nYou'll make $%,.2f this week.\n", pay);
+      } else {
+        pay = wage * hours;
+        System.out.printf("\nYou'll make $%,.2f this week.\n", pay);
+      }
     }
 }
