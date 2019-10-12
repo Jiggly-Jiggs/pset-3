@@ -31,12 +31,12 @@ public class ProblemSet3 {
         // ps.sign();          // executes Exercise 1
         // ps.parity();        // executes Exercise 2
         // ps.ordered();       // executes Exercise 3
-        ps.gpa();           // executes Exercise 4
+        // ps.gpa();           // executes Exercise 4
         // ps.grade();         // executes Exercise 5
         // ps.cards();         // executes Exercise 6
         // ps.leapYear();      // executes Exercise 7
         // ps.state();         // executes Exercise 8
-        // ps.months();        // executes Exercise 9
+        ps.months();        // executes Exercise 9
         // ps.salary();        // executes Exercise 10
 
         in.close();
@@ -121,27 +121,35 @@ public class ProblemSet3 {
 
     public void gpa() {
 
+      final double GRADE_A = 4.00;
+      final double GRADE_B = 3.00;
+      final double GRADE_C = 2.00;
+      final double GRADE_D = 1.00;
+      final double GRADE_F = 0.00;
+      final double PLUS = 0.33;
+      final double MINUS = 0.33;
+
       System.out.print("\nEnter a letter grade: ");
-      String grade = in.nextLine();
-      String letter = String.valueOf(grade.charAt(0));
+      String letterGrade = in.nextLine();
+      String letter = String.valueOf(letterGrade.charAt(0));
       String symbol = "";
       double gpaVar = 0.00;
       try {
-        symbol = String.valueOf(grade.charAt(1));
+        symbol = String.valueOf(letterGrade.charAt(1));
       } catch (Exception e) {
 
       }
 
       if (letter.equals("A")) {
-        gpaVar = 4.00;
+        gpaVar = GRADE_A;
       } else if (letter.equals("B")) {
-        gpaVar = 3.00;
+        gpaVar = GRADE_B;
       } else if (letter.equals("C")) {
-        gpaVar = 2.00;
+        gpaVar = GRADE_C;
       } else if (letter.equals("D")) {
-        gpaVar = 1.00;
+        gpaVar = GRADE_D;
       } else if (letter.equals("F")) {
-        gpaVar = 0.00;
+        gpaVar = GRADE_F;
       } else {
         System.out.println("\nThat's not a valid letter grade.");
       }
@@ -158,12 +166,16 @@ public class ProblemSet3 {
         } if (symbol.equals("-")) {
           gpaVar -= 0.33;
           System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
+        } else {
+          System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
         }
       } else if (symbol.equals("+")) {
-        gpaVar += 0.33;
+        gpaVar += PLUS;
         System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
       } else if (symbol.equals("-")) {
-        gpaVar -= 0.33;
+        gpaVar -= MINUS;
+        System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
+      } else if (symbol.equals("")) {
         System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
       }
     }
@@ -176,6 +188,35 @@ public class ProblemSet3 {
 
     public void grade() {
 
+      final double A_MAXIMUM = 100;
+      final double A_MINIMUM = 90;
+      final double B_MAXIMUM = 89;
+      final double B_MINIMUM = 80;
+      final double C_MAXIMUM = 79;
+      final double C_MINIMUM = 70;
+      final double D_MAXIMUM = 69;
+      final double D_MINIMUM = 60;
+      final double F_MAXIMUM = 59;
+      final double F_MINIMUM = 0;
+
+      System.out.print("\nEnter a grade: ");
+      double numberGrade = in.nextDouble();
+
+      if (numberGrade <= A_MAXIMUM && numberGrade >= A_MINIMUM) {
+          System.out.println("\nYou recieved an A.");
+      } else if (numberGrade <= B_MAXIMUM && numberGrade >= B_MINIMUM) {
+          System.out.println("\nYou recieved a B.");
+      } else if (numberGrade <= C_MAXIMUM && numberGrade >= C_MINIMUM) {
+          System.out.println("\nYou recieved a C.");
+      } else if (numberGrade <= D_MAXIMUM && numberGrade >= D_MINIMUM) {
+          System.out.println("\nYou recieved a D.");
+      } else if (numberGrade <= F_MAXIMUM && numberGrade >= F_MINIMUM) {
+          System.out.println("\nYou recieved an F.");
+      } else if (numberGrade < 0) {
+          System.out.println("\nGrades below 0 are invalid.");
+      } else if (numberGrade > 100) {
+          System.out.println("\nGrades above 100 are invalid.");
+      }
     }
 
     /*
@@ -186,6 +227,67 @@ public class ProblemSet3 {
 
     public void cards() {
 
+      System.out.print("\nEnter a card: ");
+      String card = in.nextLine();
+      String rank = card.substring(0, 1);
+      String suit = card.substring(1);
+      String rankWord = "";
+      String suitWord = "";
+      boolean valid = false;
+
+      if (suit.equals("C")) {
+        suitWord = "Clubs";
+        valid = true;
+      } else if (suit.equals("D")) {
+        suitWord = "Diamonds";
+        valid = true;
+      } else if (suit.equals("H")) {
+        suitWord = "Hearts";
+        valid = true;
+      } else if (suit.equals("S")) {
+        suitWord = "Spades";
+        valid = true;
+      } else {
+        valid = false;
+        System.out.println("\nThat's not a valid suit.");
+      }
+
+      if (valid) {
+        if (rank.equals("2")) {
+          rankWord = "Two";
+        } else if (rank.equals("3")) {
+          rankWord = "Three";
+        } else if (rank.equals("4")) {
+          rankWord = "Four";
+        } else if (rank.equals("5")) {
+          rankWord = "Five";
+        } else if (rank.equals("6")) {
+          rankWord = "Six";
+        } else if (rank.equals("7")) {
+          rankWord = "Seven";
+        } else if (rank.equals("8")) {
+          rankWord = "Eight";
+        } else if (rank.equals("9")) {
+          rankWord = "Nine";
+        } else if (rank.equals("T")) {
+          rankWord = "Ten";
+        } else if (rank.equals("J")) {
+          rankWord = "Jack";
+        } else if (rank.equals("Q")) {
+          rankWord = "Queen";
+        } else if (rank.equals("K")) {
+          rankWord = "King";
+        } else if (rank.equals("A")) {
+          rankWord = "Ace";
+        } else {
+          valid = false;
+          System.out.println("\nThat's not a valid rank.");
+        }
+      }
+
+      if (valid) {
+        System.out.println("\n" + rankWord + " of " + suitWord + ".");
+      }
     }
 
     /*
@@ -196,6 +298,16 @@ public class ProblemSet3 {
 
     public void leapYear() {
 
+      System.out.print("\nEnter a year: ");
+      long year = in.nextLong();
+
+      if (year >= 0) {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+          System.out.println("\n" + year + " is a leap year.");
+        } else {
+          System.out.println("\n" + year + " is not a leap year.");
+        }
+      }
     }
 
     /*
@@ -207,6 +319,40 @@ public class ProblemSet3 {
 
     public void state() {
 
+      final double C_FREEZING = 0;
+      final double C_BOILING = 100;
+      final double F_FREEZING = 32;
+      final double F_BOILING = 212;
+
+      System.out.print("\nEnter a temperature: ");
+      double temperature = in.nextDouble();
+      in.nextLine();
+      System.out.print("Enter a scale: ");
+      String scale = in.nextLine();
+
+      if (scale.equals("C")) {
+        if (temperature >= C_BOILING) {
+          System.out.println("\nGas.");
+        } else if (temperature <= C_FREEZING) {
+          System.out.println("\nSolid.");
+        } else if (temperature < C_BOILING && temperature > C_FREEZING) {
+          System.out.println("\nLiquid.");
+        }
+      }
+
+      if (scale.equals("F")) {
+        if (temperature >= F_BOILING) {
+          System.out.println("\nGas.");
+        } else if (temperature <= F_FREEZING) {
+          System.out.println("\nSolid.");
+        } else if (temperature < F_BOILING && temperature > F_FREEZING) {
+          System.out.println("\nLiquid.");
+        }
+      }
+
+      if (!(scale.equals("C")) && !(scale.equals("F"))) {
+        System.out.println("\nThat's not a valid scale.");
+      }
     }
 
     /*
@@ -216,6 +362,8 @@ public class ProblemSet3 {
      */
 
     public void months() {
+
+      System.out.print("\nEnter a month: ");
 
     }
 
