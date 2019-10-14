@@ -143,27 +143,36 @@ public class ProblemSet3 {
 
       if (letter.equals("A")) {
         gpaVar = GRADE_A;
+      } else if (letter.equals("a")) {
+        gpaVar = GRADE_A;
       } else if (letter.equals("B")) {
+        gpaVar = GRADE_B;
+      } else if (letter.equals("b")) {
         gpaVar = GRADE_B;
       } else if (letter.equals("C")) {
         gpaVar = GRADE_C;
+      } else if (letter.equals("c")) {
+        gpaVar = GRADE_C;
       } else if (letter.equals("D")) {
         gpaVar = GRADE_D;
+      } else if (letter.equals("d")) {
+        gpaVar = GRADE_D;
       } else if (letter.equals("F")) {
+        gpaVar = GRADE_F;
+      } else if (letter.equals("f")) {
         gpaVar = GRADE_F;
       } else {
         System.out.println("\nThat's not a valid letter grade.");
       }
 
-      if (letter.equals("F")) {
+      if (letter.equals("F") || letter.equals("f")) {
         if (symbol.equals("+")) {
           System.out.println("\nThat's not a valid letter grade.");
         } else if (symbol.equals("-")) {
           System.out.println("\nThat's not a valid letter grade.");
         } else System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
-      } else if (letter.equals("A")) {
+      } else if (letter.equals("A") || letter.equals("a")) {
         if (symbol.equals("+")) {
-          System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
         } if (symbol.equals("-")) {
           gpaVar -= 0.33;
           System.out.printf("\nYour GPA is %.2f.\n", gpaVar);
@@ -242,13 +251,25 @@ public class ProblemSet3 {
       if (suit.equals("C")) {
         suitWord = "Clubs";
         valid = true;
+      } else if (suit.equals("c")) {
+        suitWord = "Clubs";
+        valid = true;
       } else if (suit.equals("D")) {
+        suitWord = "Diamonds";
+        valid = true;
+      } else if (suit.equals("d")) {
         suitWord = "Diamonds";
         valid = true;
       } else if (suit.equals("H")) {
         suitWord = "Hearts";
         valid = true;
+      } else if (suit.equals("h")) {
+        suitWord = "Hearts";
+        valid = true;
       } else if (suit.equals("S")) {
+        suitWord = "Spades";
+        valid = true;
+      } else if (suit.equals("s")) {
         suitWord = "Spades";
         valid = true;
       } else {
@@ -275,13 +296,23 @@ public class ProblemSet3 {
           rankWord = "Nine";
         } else if (rank.equals("T")) {
           rankWord = "Ten";
+        } else if (rank.equals("t")) {
+          rankWord = "Ten";
         } else if (rank.equals("J")) {
+          rankWord = "Jack";
+        } else if (rank.equals("j")) {
           rankWord = "Jack";
         } else if (rank.equals("Q")) {
           rankWord = "Queen";
+        } else if (rank.equals("q")) {
+          rankWord = "Queen";
         } else if (rank.equals("K")) {
           rankWord = "King";
+        } else if (rank.equals("k")) {
+          rankWord = "King";
         } else if (rank.equals("A")) {
+          rankWord = "Ace";
+        } else if (rank.equals("a")) {
           rankWord = "Ace";
         } else {
           valid = false;
@@ -336,7 +367,7 @@ public class ProblemSet3 {
       System.out.print("Enter a scale: ");
       String scale = in.nextLine();
 
-      if (scale.equals("C")) {
+      if (scale.equals("C") || scale.equals("c")) {
         if (temperature >= C_BOILING) {
           System.out.println("\nGas.");
         } else if (temperature <= C_FREEZING) {
@@ -346,7 +377,7 @@ public class ProblemSet3 {
         }
       }
 
-      if (scale.equals("F")) {
+      if (scale.equals("F") || scale.equals("f")) {
         if (temperature >= F_BOILING) {
           System.out.println("\nGas.");
         } else if (temperature <= F_FREEZING) {
@@ -356,7 +387,7 @@ public class ProblemSet3 {
         }
       }
 
-      if (!(scale.equals("C")) && !(scale.equals("F"))) {
+      if (!(scale.equals("C") || scale.equals("c")) && !(scale.equals("F") || scale.equals("f"))) {
         System.out.println("\nThat's not a valid scale.");
       }
 
@@ -372,30 +403,31 @@ public class ProblemSet3 {
 
       System.out.print("\nEnter a month: ");
       String month = in.nextLine();
+      month = month.toLowerCase();
 
-      if (month.equals("January")) {
+      if (month.equals("january")) {
         System.out.println("\n31 days.");
-      } else if (month.equals("February")) {
+      } else if (month.equals("february")) {
         System.out.println("\n28 or 29 days.");
-      } else if (month.equals("March")) {
+      } else if (month.equals("march")) {
         System.out.println("\n31 days.");
-      } else if (month.equals("April")) {
+      } else if (month.equals("april")) {
         System.out.println("\n30 days.");
-      } else if (month.equals("May")) {
+      } else if (month.equals("may")) {
         System.out.println("\n31 days.");
-      } else if (month.equals("June")) {
+      } else if (month.equals("june")) {
         System.out.println("\n30 days.");
-      } else if (month.equals("July")) {
+      } else if (month.equals("july")) {
         System.out.println("\n31 days.");
-      } else if (month.equals("August")) {
+      } else if (month.equals("august")) {
         System.out.println("\n31 days.");
-      } else if (month.equals("September")) {
+      } else if (month.equals("september")) {
         System.out.println("\n30 days.");
-      } else if (month.equals("October")) {
+      } else if (month.equals("october")) {
         System.out.println("\n31 days.");
-      } else if (month.equals("November")) {
+      } else if (month.equals("november")) {
         System.out.println("\n30 days.");
-      } else if (month.equals("December")) {
+      } else if (month.equals("december")) {
         System.out.println("\n31 days.");
       } else {
         System.out.println("\nThat's not a valid month.");
